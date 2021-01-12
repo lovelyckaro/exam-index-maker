@@ -26,3 +26,7 @@ clean:
 	rm generateLatex
 	rm src/generateLatex.hi
 	rm src/generateLatex.o
+
+clean-downloads:
+	@echo "Removing downloads"
+	rm exams/*.pdf
