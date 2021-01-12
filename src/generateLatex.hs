@@ -1,7 +1,7 @@
 module Main where
 
 import System.Directory ( listDirectory )
-import Data.List (sortBy)
+import Data.List (isSuffixOf, sortBy)
 import Data.Ord (Down)
 
 getStart :: IO String
@@ -16,7 +16,8 @@ getPdfs = do
     return . sortBy (flip compare) $ pdfs
 
 toLatex :: FilePath -> String
-toLatex fp = "\\includepdf[pages=-]{exams/" ++ fp ++ "}"
+toLatex fp | ".pdf" `isSuffixOf` fp  = "\\includepdf[pages=-]{exams/" ++ fp ++ "}"
+           | otherwise = ""
 
 main :: IO ()
 main = do

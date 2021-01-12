@@ -1,4 +1,3 @@
-exams/*
 src/*
 !src/generateLatex.hs
 generateLatex
