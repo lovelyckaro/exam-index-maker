@@ -1,9 +1,7 @@
 base="https://chalmerstenta.se"
 end="/test"
 
-paths=$( curl $1 | pup "td a attr{href}")
-
-echo "Downloading exams"
+paths=$( curl -# $1 | pup "td a attr{href}")
 for path in $paths
 do
     if [[ $path == /tenta/* ]]
@@ -11,7 +9,7 @@ do
         if [[ $path == *i.pdf ]]
         then
             cd exams
-           # curl -O -J -# $base$path
+            curl -O -J -# $base$path
             cd ../ 
         else
             cd tmp
