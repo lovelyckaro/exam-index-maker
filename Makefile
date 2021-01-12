@@ -2,7 +2,6 @@ merged.pdf: merged.tex
 	@echo "Compiling pdf"
 	latexmk -pdf -outdir=trash -silent merged.tex
 	mv trash/merged.pdf ./
-	clean
 
 merged.tex: generateLatex
 	@echo "Generating latex"
@@ -14,9 +13,9 @@ generateLatex:
 
 download: generateLatex
 	@echo "Downloading files"
-	sh download.sh $(URL)
+	sh src/download.sh $(URL)
 	@echo "Combining seperate exams and solutions into one file"
-	sh combine.sh
+	sh src/combine.sh
 	rm -rf tmp/*/
 
 clean:
