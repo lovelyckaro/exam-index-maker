@@ -28,7 +28,7 @@ main = do
 
     let dir = case args of
             (d:rest) -> d
-            [] -> "exams"
+            [] -> "exams/"
 
     pdfs <- getPdfs dir
 
