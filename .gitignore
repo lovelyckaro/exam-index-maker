@@ -1,0 +1,8 @@
+exams/*
+src/*
+!src/generateLatex.hs
+generateLatex
+merged*
+
+! .gitignore
+! src/generateLatex.hs
