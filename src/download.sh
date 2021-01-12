@@ -11,7 +11,10 @@ do
         then # Download into exams directly
             cd exams
             curl -O -J -# $base$path
-            cd ../ 
+            cd ../
+        elif [[ $path == *x.pdf ]] # If solutions are missing, ignore the file
+        then
+            echo $path is missing solutions, skipping
         else # Otherwise we need to download the exam and solution pdfs separately and combine later
             cd tmp
             fn=${path##*/}
