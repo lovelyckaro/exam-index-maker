@@ -1,15 +1,15 @@
-generate_pdf: generate_latex
+merged.pdf: merged.tex
 	@echo "Compiling pdf"
 	pdflatex merged.tex
 
-generate_latex: compile_haskell
+merged.tex: generateLatex
 	@echo "Generating latex"
 	./generateLatex
 
-compile_haskell:
+generateLatex:
 	@echo "Compiling generateLatex.hs"
 	ghc -O src/generateLatex.hs -o generateLatex
 
 clean:
 	@echo "Cleaning up!"
-	rm generateLatex generateLatex.hi generateLatex.o merged.aux merged.tex merged.fdb_latexmk merged.fls merged.log merged.synctex.gz
+	rm generateLatex merged.aux merged.tex merged.log
