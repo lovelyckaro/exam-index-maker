@@ -1,6 +1,7 @@
 merged.pdf: merged.tex
 	@echo "Compiling pdf"
-	pdflatex merged.tex
+	latexmk -pdf merged.tex
+	latexmk -c
 
 merged.tex: generateLatex
 	@echo "Generating latex"
@@ -9,7 +10,3 @@ merged.tex: generateLatex
 generateLatex:
 	@echo "Compiling generateLatex.hs"
 	ghc -O src/generateLatex.hs -o generateLatex
-
-clean:
-	@echo "Cleaning up!"
-	rm generateLatex merged.aux merged.tex merged.log
