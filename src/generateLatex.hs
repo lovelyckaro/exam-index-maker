@@ -6,10 +6,10 @@ import Data.List (isSuffixOf, sortBy)
 import Data.Ord (Down)
 
 getStart :: IO String
-getStart = readFile "start.tex"
+getStart = readFile "src/start.tex"
 
 getEnd :: IO String
-getEnd = readFile "end.tex"
+getEnd = readFile "src/end.tex"
 
 getPdfs :: FilePath -> IO [FilePath]
 getPdfs fp = do
